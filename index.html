@@ -1,0 +1,690 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+
+  <title>Introdução ao Desenvolvimento de Apps com Ionic e Firebase</title>
+
+  <meta name="description" content="Ionic Framework Presentation: The beautiful, open source framework for developing native and mobile web apps with web technologies.">
+  <link rel="shortcut icon" href="img/favicon-96x96.png">
+
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+  <!-- Our compiled CSS -->
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/ionic.css">
+
+  <!-- Code syntax highlighting -->
+  <link rel="stylesheet" href="lib/css/atom-one-dark.css">
+
+  <!-- Printing and PDF exports -->
+  <script>
+    var link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+    document.getElementsByTagName('head')[0].appendChild(link);
+  </script>
+
+  <!--[if lt IE 9]>
+    <script src="lib/js/html5shiv.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+
+  <div class="reveal">
+
+    <!-- Any section element inside of this container is displayed as a slide -->
+    <div class="slides">
+
+
+      <section>
+        <img src="img/ionic-logo-landscape.png" class="logo" style="max-width: 400px">
+        <h4 style="line-height: 40px; margin-top: 30px;">Introdução ao Desenvolvimento de
+          <br>Apps com Ionic e Firebase</h4>
+        <p>
+          <!-- <a target="_blank" href="http://ionicframework.com/">ionicframework.com</a> -->
+        </p>
+      </section>
+
+      <section>
+        <div class="avatar">
+          <img src="img/roosevelt.jpg" class="avatar">
+        </div>
+        <h4 style="line-height: 40px; margin-top: 30px;">
+          <strong>Roosevelt Fernandes</strong>
+        </h4>
+        <p>
+          ONNZE Desenvolvimento de Apps e Sistemas</p>
+        <p>
+          Empreendedor e desenvolvedor com mais de 10 anos de experiência em criação de produtos e formação de equipes.
+        </p>
+        <p>
+          <a href="www.onnze.com">www.onnze.com</a>
+          <br>
+          <a href="https://www.linkedin.com/in/rooseveltfers">https://www.linkedin.com/in/rooseveltfers/</a>
+        </p>
+      </section>
+
+
+      <section>
+        <div class="avatar">
+          <img src="img/wesley.jpg" class="avatar">
+        </div>
+        <h4 style="line-height: 40px; margin-top: 30px;">
+          <strong>Wesley Monaro</strong>
+        </h4>
+        <p>
+          Desenvolvedor Freelancer</p>
+        <p>
+          Estudante de Análise e Desenvolvimento de Sistemas na UMC. Desenvolvedor full-stack com foco em desenvolvimento mobile híbrido.
+        </p>
+        <p>
+          <a href="https://www.linkedin.com/in/wesleymonaro/">https://www.linkedin.com/in/wesleymonaro/</a>
+        </p>
+      </section>
+
+
+
+      <!-- <section>
+        <img src="img/ionitron-twitter.png" style="position: absolute; top:0; left:0; max-width: 260px; max-height: 260px; border-radius: 30px">
+        <div style="position: absolute; top: -100px; left: 300px;">
+          <h2>About Me</h2>
+        </div>
+        <ul style="position: absolute; top:0; left:300px;">
+          <li>Ionitron</li>
+          <li>Ionic Framework Developer</li>
+          <li>Madison, WI, USA, Earth, Sol, Milky Way</li>
+          <li>
+            <a href="https://twitter.com/ionitron">@ionitron</a>
+          </li>
+          <li>
+            <a href="https://github.com/ionitron">github.com/ionitron</a>
+          </li>
+        </ul>
+      </section> -->
+
+      <!-- <section>
+        <h2>Overview</h2>
+        <ol>
+          <li>Native vs Hybrid Apps</li>
+          <li>Intro to Ionic</li>
+          <li>UI Components</li>
+          <li>Ionic CLI</li>
+          <li>Demos</li>
+        </ol>
+      </section> -->
+
+
+      <!-- <section>
+        <blockquote>
+          &ldquo;I want to build an app!&rdquo;
+          <div style="margin-top: 30px; margin-left: 200px;">
+            - Literally everyone
+          </div>
+        </blockquote>
+      </section> -->
+
+
+      <!-- <section>
+        <h3>Building apps is
+          <i>Hard</i>
+        </h3>
+        <ul>
+          <li>Proficiency in each targeted platform</li>
+          <li>Domain-specific language to learn</li>
+          <li>Entirely separate code bases</li>
+          <li>Expensive development (time and cost)</li>
+          <li>Lack of portability with native approaches</li>
+        </ul>
+        <p style="margin-top: 60px">
+          <img src="img/apple.png" class="logo" width="200" height="200" style="margin-right: 10px">
+          <img src="img/android.png" class="logo" width="200" height="200" style="margin-left: 10px; margin-right: 10px">
+          <img src="img/windows.png" class="logo" width="200" height="200" style="margin-left: 10px; margin-right: 10px">
+          <img src="img/safari.png" class="logo" width="200" height="200" style="margin-left: 10px; margin-right: 10px">
+          <!--<img src="img/blackberry.png" class="logo" width="200" height="200" style="margin-left: 10px;">--
+        </p>
+      </section>
+
+      <section>
+        <h3 style="font-size: 60px">Enter Hybrid Apps!</h3>
+        <p style="font-size: 32px">
+          <strong>HTML5</strong> with platform-specific UI</p>
+        <p style="font-size: 32px">Full access to
+          <strong>native APIs and SDKs</strong>
+        </p>
+        <p style="font-size: 32px">Familiar
+          <strong>web development</strong> environment</p>
+        <p style="font-size: 32px">
+          <strong>Single code base</strong> across native and the web</p>
+      </section>
+
+      <section data-background="img/oldphones.jpg">
+        <blockquote style="font-size: 80px; font-family:Georgia; text-shadow: 5px 0 15px rgba(0,0,0,.7)">
+          &ldquo;It's not 2007 anymore&rdquo;
+        </blockquote>
+      </section>
+
+
+      <section data-background="img/dylan.jpg">
+        <!--<img src="img/times-changin.png" style="height: 100px; margin: 0 300px 40px 0;">--
+        <h2>Devices have evolved considerably!</h2>
+        <table>
+          <tr>
+            <th>Year</th>
+            <th>Device</th>
+            <th>Processor</th>
+            <th>RAM</th>
+          </tr>
+          <tr>
+            <td>2007</td>
+            <td>iPhone</td>
+            <td>400 MHz</td>
+            <td>128 MB</td>
+          </tr>
+          <tr>
+            <td>2010</td>
+            <td>iPhone 4</td>
+            <td>1 GHz</td>
+            <td>512 MB</td>
+          </tr>
+          <tr>
+            <td>2015</td>
+            <td>iPhone 6</td>
+            <td>1.4 GHz dual-core</td>
+            <td>1 GB</td>
+          </tr>
+          <tr>
+            <td>2016</td>
+            <td>iPhone 6s</td>
+            <td>1.84 GHz dual-core</td>
+            <td>2 GB</td>
+          </tr>
+        </table>
+      </section>
+
+
+      <section>
+        <h4 style="font-size:50px; margin:0;">Much better</h4>
+        <h4 style="font-size:80px;">WEB APIs!</h4>
+        <p>Performant animation with GPU compositing</p>
+        <p>Advanced mobile device features and APIs</p>
+        <p>Web-workers to offload tasks from UI</p>
+        <p>Modern
+          <strong>Chromium</strong> for Android</p>
+        <p style="text-align:center;">
+          <img src="img/caniuse-querySelector.png" width=460 class="logo">
+          <img src="img/caniuse-flexbox.png" width=460 class="logo">
+        </p>
+        <p>Source:
+          <a href="http://caniuse.com">caniuse.com</a>
+        </p>
+      </section>
+
+      <section>
+        <h2>Users keeping devices updated</h2>
+        <h4>Example: Rapid iOS Upgrades</h4>
+        <img src="img/ios9adoption2.png">
+        <p style="font-size:10px">https://mixpanel.com/trends/#report/ios_9</p>
+      </section> -->
+
+
+      <!--
+        <section data-background="white">
+          <img src="img/android-adoption.png">
+          <p style="font-size:10px">https://mixpanel.com/trends/#report/android_os_adoption</p>
+        </section>
+      -->
+
+
+      <!--
+        <section>
+          <h3 style="margin:0">Native SDKs...</h3>
+          <h2 style="font-size:2.2em;">Are Great!</h2>
+          <p style="margin:30px auto 20px auto; width: 600px">
+            Revolutionary UI, integrated sensors APIs, views, navigation, stack history, transitions, interactions, gestures, etc.
+          </p>
+            <img src="img/native-sdk.png" style="width:66%">
+        </section>
+      -->
+
+
+
+      <!-- <section>
+        <h2>So, what's missing?</h2>
+      </section> -->
+
+      <section data-background="white">
+        <img src="img/ionic-logo-portrait.png" style="max-width:300px;">
+      </section>
+
+      <section>
+        O que são apps híbridos?
+      </section>
+
+      <section>
+        <h3>Diferença entre Nativo/híbrido</h3>
+        <img src="img/websdk.png">
+      </section>
+
+      <section>
+        <h3>Diferença entre Nativo/híbrido</h3>
+        <img src="img/websdk-ionic.png">
+      </section>
+
+
+
+      <section>
+        <h3 style="margin:0; font-size:32px">O que o Ionic usa?</h3>
+        <!-- <h2 style="font-size: 85px;">Know &amp; Love</h2> -->
+        <div style="margin-top: 30px">
+          <img src="img/html.png" class="logo" width="185" height="260">
+          <img src="img/css.png" class="logo" width="185" height="260" style="margin-left: 80px; margin-right: 80px;">
+          <img src="img/js.png" class="logo" width="185" height="260">
+        </div>
+        <p style="margin-top: 30px; opacity: 0.6">
+          Desenvolve sites? Você se sentirá em casa ;)
+        </p>
+      </section>
+
+
+      <section data-background="img/angular-bg.png">
+        <h2 style="font-size:90px;">Angular</h2>
+        <h3 style="font-size:42px; margin:0">Framework para criação de SPAs</h3>
+        <h4 style="font-size:35px; margin:0">(Single Page Applications)</h4>
+        <p style="margin-top:60px;">
+          <strong>Extensão do HTML</strong> com novas tags</p>
+        <p>Mantido pelo
+          <strong>Google</strong>
+        </p>
+        <p>Otimizado para desenvolvimento de apps em
+          <strong>larga escala</strong>
+        </p>
+        <p>Permite criar apps de
+          <strong>Alta performance</strong>
+        </p>
+        <p>
+          Docs:
+          <a href="https://angular.io/">angular.io</a>
+        </p>
+      </section>
+
+      <section data-background="img/typescript-bg.png">
+        <h2 style="font-size:90px;">TypeScript!</h2>
+        <p style="margin-top:60px;">
+          Desenvolva em JS
+          <strong>de forma mais rápida</strong>
+        </p>
+        <p>Linguagem
+          <strong>fortemente tipada</strong>
+        </p>
+        <p>
+          <strong>Poderoso suporte de IDE</strong>: Auto-complete, intellisense, refactoring
+        </p>
+        <p>
+          Docs:
+          <a href="https://www.typescriptlang.org/">typescriptlang.org</a>
+        </p>
+      </section>
+
+      <section data-background="img/sass.png">
+        <h2 style="font-size:3em; text-transform: none;">Sass!</h2>
+        <p>CSS gerado pelo
+          <strong>pré-processador Sass</strong>
+        </p>
+        <p>Permite customização mais
+          <strong>rápida e simples</strong>
+        </p>
+        <p>CSS projetado para ser
+          <strong>facilmente substituído</strong>
+        </p>
+        <p>
+          Permite uso de
+          <strong>variáveis</strong>
+        </p>
+        <p>
+          Docs:
+          <a href="https://sass-lang.com/">sass-lang.com</a>
+        </p>
+      </section>
+
+
+      <section data-background="img/phones-stacked.png">
+        <h2 style="color:black; margin-bottom: 50px">Como tudo isso funciona?</h2>
+        <ul class="stack">
+          <li style="background: #20ab93">Seu App</li>
+          <li style="background: #4c8df5">Ionic</li>
+          <li style="background: #d94442">Angular</li>
+          <li style="background: #3b4854">Cordova</li>
+          <li style="background: #d4deee; color: #3b4854;">SDKs nativos</li>
+        </ul>
+      </section>
+
+
+      <!-- <section data-background="#EFF1F5">
+        <img src="img/continuity.png" style="width: 100%">
+      </section> -->
+
+      <section>
+        <h2>Exemplos de componentes Ionic</h2>
+      </section>
+
+      <section>
+        <div class="col preview demo-frame">
+          <iframe isrc="demos/list/index.html"></iframe>
+        </div>
+        <div class="col code">
+          <h2>Listas</h2>
+          <ul style="margin-left: 70px">
+            <li>Diretivas AngularJS</li>
+            <li>Botões expostos ao deslizar</li>
+            <li>Reordenar</li>
+            <li>Excluir</li>
+          </ul>
+          <pre>
+            <code data-trim contenteditable class="xml">
+              &lt;ion-list&gt;
+                &lt;button ion-item *ngFor=&quot;let item of items&quot;&gt;
+                  {{ item.title }}
+                &lt;/button&gt;
+              &lt;/ion-list&gt;
+            </code>
+          </pre>
+        </div>
+      </section>
+
+
+      <section>
+        <div class="col preview demo-frame">
+          <iframe isrc="demos/collection-repeat/index.html"></iframe>
+        </div>
+        <div class="col code">
+          <h3>Virtual Scroll</h3>
+          <ul style="margin-left: 70px">
+            <li>Inspirado no iOS UICollectionView</li>
+            <li>Scroll centenas de itens</li>
+            <li>Renderiza apenas os itens visíveis</li>
+            <li>Rolagem suave</li>
+          </ul>
+          <pre><code data-trim data-noescape contenteditable class="xml">
+              &lt;ion-list [virtualScroll]=&quot;items&quot;&gt;
+                &lt;ion-item *virtualItem=&quot;let item&quot;&gt;
+                  &lt;ion-avatar item-start&gt;
+                    &lt;ion-img [src]=&quot;item.avatarUrl&quot;&gt;&lt;/ion-img&gt;
+                  &lt;/ion-avatar&gt;
+                  {{ item.firstName }} {{ item.lastName }}
+                &lt;/ion-item&gt;
+              &lt;/ion-list&gt;
+</code></pre>
+        </div>
+      </section>
+
+
+      <!-- <section>
+        <div class="col preview demo-frame">
+          <iframe isrc="demos/tabs/index.html"></iframe>
+        </div>
+        <div class="col code">
+          <h3>Navigation</h3>
+          <ul style="margin-left: 70px">
+            <li>Native-app style navigation</li>
+            <li>Transitions follow direction of nav</li>
+            <li>Updates the app's URL</li>
+            <li>Supports parallel histories</li>
+            <li>Swipe to go back</li>
+          </ul>
+          <pre><code data-trim contenteditable class="xml">
+<ion-tabs selectedIndex="2">
+  <ion-tab [root]="tab1Root"></ion-tab>
+  <ion-tab [root]="tab2Root"></ion-tab>
+  <ion-tab [root]="tab3Root"></ion-tab>
+</ion-tabs></code></pre>
+        </div>
+      </section> -->
+
+
+      <!--
+        <section>
+          <div class="col preview demo-frame">
+            <iframe isrc="demos/swipe-back/index.html"></iframe>
+          </div>
+          <div class="col code">
+            <h3>Swipe To Go Back</h3>
+            <ul style="margin-left: 70px">
+              <li>Swipe back to previous view</li>
+              <li>Interactive transition</li>
+              <li>Benefit of cached views</li>
+              <li>Still updates the app's URL</li>
+              <li>WebView (Cordova) only</li>
+            </ul>
+          </div>
+        </section>
+      -->
+
+
+      <section>
+        <div class="col preview demo-frame">
+          <iframe isrc="demos/components/index.html"></iframe>
+        </div>
+        <div class="col code">
+          <h3>Outros Componentes</h3>
+          <ul style="margin-left: 70px">
+            <li>Side Menus</li>
+            <li>Actionsheet</li>
+            <li>Modal</li>
+            <li>Pull To Refresh</li>
+            <li>Spinners</li>
+            <li>Slidebox</li>
+            <li>Infinite Scroll</li>
+            <li>Swipeable List Options</li>
+            <li>Popup</li>
+            <li>Popover</li>
+            <li>Loading Overlay</li>
+            <li>Inputs</li>
+            <li>Buttons</li>
+            <li>etc.</li>
+          </ul>
+        </div>
+      </section>
+
+
+      <!-- <section>
+        <h2>
+          <strong>MIT LICENSED</strong>
+        </h2>
+        <h6 class="light-text">Free to use (even commercially)</h6>
+      </section> -->
+
+
+      <section>
+        <h2>Ionicons</h2>
+        <img src="img/ionicons.png" class="logo" width="655" height="436">
+        <p>700+ ícones inclusos</p>
+        <p>
+          <a href="http://ionicons.com/" target="_blank">ionicons.com</a>
+        </p>
+      </section>
+
+      <section data-background="white">
+        <h3 class="ionic-blue">
+          <strong>Pré-requisitos para instalar o Ionic</strong>
+        </h3>
+        <img src="img/node-npm.png" class="logo" width="800">
+      </section>
+
+
+
+      <section data-background="white">
+        <p>
+          <code style="font-size: 1.2em;" class="ionic-blue">npm install -g ionic cordova</code>
+        </p>
+        <!--<img src="img/cli.png" height="220" style="border: 0">-->
+        <p>
+          <code style="font-size: 1.2em" class="ionic-blue">ionic start myApp</code>
+        </p>
+      </section>
+
+      <!-- Modern Chromium Slide
+        <section data-background="img/chromium.jpg">
+          <h3 style="margin:0; font-size:60px;">Modern</h3>
+          <h2 style=" font-size:80px;">Chromium!</h2>
+          <p>Chromium for Android <strong>WebViews</strong></p>
+          <p><strong>Upgrade Android</strong> 4.1+ and above</p>
+          <p>Same hardware, <strong>modern software</strong></p>
+          <p><strong>Amazing performance</strong> improvements</p>
+        </section>
+        -->
+
+      <!--
+        <section data-background="img/market.png">
+        </section>
+      -->
+
+      <!--
+        <section data-background="img/ng-cordova.png">
+        </section>
+
+        <section data-background="img/ionic-angular-v2.jpg">
+        </section>
+        -->
+
+      <!-- <section>
+        <h2>Get Started with Ionic!</h2>
+        <br />
+        <p>
+          <strong>Getting started guide</strong>
+          <br />
+          <a href="http://ionicframework.com/getting-started/" target="_blank">
+            <span class="light-text">ionicframework.com/getting-started</span>
+          </a>
+        </p>
+        <br />
+        <p>
+          <strong>Documentation</strong>
+          <br />
+          <a href="http://ionicframework.com/docs/" target="_blank">
+            <span class="light-text">ionicframework.com/docs</span>
+          </a>
+        </p>
+        <br />
+        <p>
+          <strong>Visit the Community Forum</strong>
+          <br />
+          <a href="http://forum.ionicframework.com/" target="_blank">
+            <span class="light-text">forum.ionicframework.com</span>
+          </a>
+        </p>
+        <br />
+        <p>
+          <strong>Contribute on GitHub</strong>
+          <br />
+          <a href="https://github.com/driftyco/ionic" target="_blank">
+            <span class="light-text">github.com/driftyco/ionic</span>
+          </a>
+        </p>
+      </section> -->
+
+
+      <section>
+        <h2>
+          <strong>Let's code!</strong>
+        </h2>
+      </section>
+
+
+      <!-- <section>
+        <h2>
+          <code style="font-size:60px">&lt;/html&gt;</code>
+        </h2>
+        <h3>
+          <a href="https://twitter.com/ionicframework" target="_blank">
+            @ionicframework
+          </a>
+        </h3>
+        <h4>
+          <a href="http://ionicframework.github.io/ionic-present/#/">
+            http://ionicframework.github.io/ionic-present
+          </a>
+        </h4>
+      </section> -->
+
+      <section data-background="#FFF241">
+        <div>
+          <div style="float: left; width: 50%;">
+            <img src="img/firebase.png" width="300px">
+          </div>
+          <div style="float: right; width: 50%;">
+            <h3>Plataforma Back-end desenvolvida pelo Google</h3>
+
+            <ul>
+              <li>Database</li>
+              <li>Storage</li>
+              <li>Cloud Functions</li>
+              <li>Hosting</li>
+              <li>Analytics</li>
+            </ul>
+            <p>
+              Docs:
+              <a href="https://firebase.google.com/docs/">firebase.google.com/docs</a>
+            </p>
+          </div>
+        </div>
+
+      </section>
+
+    </div>
+
+  </div>
+
+  <script src="lib/js/head.min.js"></script>
+  <script src="js/reveal.js"></script>
+
+  <script>
+
+    // Full list of configuration options available at:
+    // https://github.com/hakimel/reveal.js#configuration
+    Reveal.initialize({
+      controls: true,
+      progress: true,
+      history: true,
+      center: true,
+
+      transition: 'fade', // none/fade/slide/convex/concave/zoom
+
+      // Optional reveal.js plugins
+      dependencies: [
+        { src: 'lib/js/classList.js', condition: function () { return !document.body.classList; } },
+        { src: 'plugin/markdown/marked.js', condition: function () { return !!document.querySelector('[data-markdown]'); } },
+        { src: 'plugin/markdown/markdown.js', condition: function () { return !!document.querySelector('[data-markdown]'); } },
+        { src: 'plugin/highlight/highlight.js', async: true, condition: function () { return !!document.querySelector('pre code'); }, callback: function () { hljs.initHighlightingOnLoad(); } },
+        { src: 'plugin/zoom-js/zoom.js', async: true },
+        { src: 'plugin/notes/notes.js', async: true }
+      ]
+    });
+
+    Reveal.addEventListener('slidechanged', function (event) {
+      // load iframes on page enter to speed up initial load time
+      console.log(event)
+      var iframe = event.currentSlide.querySelector('iframe')
+      if (iframe) {
+        iframe.setAttribute('src', iframe.getAttribute('isrc'));
+      }
+
+      var prevIframe = event.previousSlide.querySelector('iframe');
+      if (prevIframe) {
+        prevIframe.setAttribute('src', '');
+      }
+
+      // event.previousSlide, event.currentSlide, event.indexh, event.indexv
+    });
+
+  </script>
+
+</body>
+
+</html>
